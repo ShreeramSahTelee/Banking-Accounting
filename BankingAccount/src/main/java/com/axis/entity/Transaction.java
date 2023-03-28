@@ -1,5 +1,80 @@
 package com.axis.entity;
 
-public class Transaction {
+import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+
+
+
+@Entity
+@Table()
+public class Transaction {
+    @javax.persistence.Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY.AUTO)
+    private int id;
+    
+    private long customerId;
+    private String transactionType;
+    private String transactionNature;
+    private double amount;
+    private String beneficiaryAccountNumber;
+    private String narration;
+    private LocalDateTime transactionDate;
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public long getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(long customerId) {
+		this.customerId = customerId;
+	}
+	public String getTransactionType() {
+		return transactionType;
+	}
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
+	}
+	public String getTransactionNature() {
+		return transactionNature;
+	}
+	public void setTransactionNature(String transactionNature) {
+		this.transactionNature = transactionNature;
+	}
+	
+	
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+	public String getBeneficiaryAccountNumber() {
+		return beneficiaryAccountNumber;
+	}
+	public void setBeneficiaryAccountNumber(String beneficiaryAccountNumber) {
+		this.beneficiaryAccountNumber = beneficiaryAccountNumber;
+	}
+	public String getNarration() {
+		return narration;
+	}
+	public void setNarration(String narration) {
+		this.narration = narration;
+	}
+	public LocalDateTime getTransactionDate() {
+		return transactionDate;
+	}
+	public void setTransactionDate(LocalDateTime transactionDate) {
+		this.transactionDate = transactionDate;
+	}
+    
+    
 }
