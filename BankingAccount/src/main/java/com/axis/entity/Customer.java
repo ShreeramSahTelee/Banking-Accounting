@@ -2,26 +2,37 @@ package com.axis.entity;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+
 @Entity
-@Table(name="customer65")
+@Table(uniqueConstraints=@UniqueConstraint(columnNames={"customerEmail","customerNumber"}))
+
 public class Customer {
 	
 	@Id
     @SequenceGenerator(name = "customer_id", allocationSize = 1,initialValue =100000000)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "customer_id")
-	//private long id;
+	
 	private long customerId;
+	
+   
 	private String customerEmail;
+	
+	
 	private long customerNumber;
 	private String customerPassword;
 	private String accountNumber;
-	private BigDecimal balance;
+	private double balance;
+	
 	
 	public String getCustomerEmail() {
 		return customerEmail;
@@ -81,14 +92,16 @@ public class Customer {
 	}
 
 
-	public BigDecimal getBalance() {
+	public double getBalance() {
 		return balance;
 	}
 
 
-	public void setBalance(BigDecimal balance) {
+	public void setBalance(double balance) {
 		this.balance = balance;
 	}
+
+
 
 
 	
